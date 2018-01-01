@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- 定义maven的pom类型版本 -->
+	<modelVersion>4.0.0</modelVersion>
+	<!-- 定义 公司名，项目 名，版本号 -->
+	<groupId>com.et</groupId>
+	<artifactId>webTest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<!-- 定义项目类型是javaee还是javase -->
+	<packaging>war</packaging>
+	<!-- 定义项目要那些jar包 -->
+	<dependencies>
+		<!--从仓库下载jar包 -->
+		<dependency>
+			<groupId>Mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
+		<!--从本地文件系统中找jar包 -->
+		<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>oracle</artifactId>
+			<version>oracle11g</version>
+			<!-- 作用域 （除了 system是表示从哪里去找之外，其他的都表示这个jar包加不加到编译后的war包中） -->
+			<scope>system</scope>
+			<systemPath>D:\app\THINK\product\11.2.0\dbhome_1\jdbc\lib\ojdbc6.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>cn.bestwu</groupId>
+			<artifactId>ik-analyzers</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.paoding</groupId>
+			<artifactId>paoding-rose</artifactId>
+			<version>2.0.u08</version>
+		</dependency>
+		
+	</dependencies>
+	<!-- 插件 -->
+	<build>
+		<plugins>
+		<!-- mvn tomcat:run -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<port>8089</port>
+					<uriEncoding>UTF-8</uriEncoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
